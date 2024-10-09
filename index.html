@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/public/favicon1.ico">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/style/load.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灿灿的小窝</title><style></style>
+    <script>
+      // 设置 html 的 data-theme 属性
+      console.log(localStorage.getItem('isTheme'))
+      const theme = localStorage.getItem('isTheme')
+      document.documentElement.setAttribute('data-theme', theme == 'system' || theme == null ? window.matchMedia('(prefers-color-scheme: dark)').matches : theme)
+
+      // 隐藏 loadBox
+      window.onload = ()=> {
+        document.querySelector('.loadBox').style.display = 'none'
+      }
+    </script>
+  </head>
+  <body>
+    <div class="loadBox">
+      <main class="loader-container">
+        <div class="loader-state">
+          <div class="scene-container stars-out" tabindex="1">
+            <div class="ghost-container">
+              <div class="ghost hover">
+                <!-- 鬼魂的头部、眼睛、嘴、腮红 -->
+                <div class="ghost-head">
+                  <div class="ghost-face">
+                    <div class="eyes-row">
+                      <div class="eye left"></div>
+                      <div class="eye right"></div>
+                    </div>
+                    <div class="mouth-row">
+                      <div class="cheek left"></div>
+                      <div class="mouth">
+                        <div class="mouth-top"></div>
+                        <div class="mouth-bottom"></div>
+                      </div>
+                      <div class="cheek right"></div>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- 鬼魂的身体 -->
+                <div class="ghost-body">
+                  <div class="ghost-hand hand-left"></div>
+                  <div class="ghost-hand hand-right"></div>
+                  <div class="ghost-skirt">
+                    <div class="pleat down"></div>
+                    <div class="pleat up"></div>
+                    <div class="pleat down"></div>
+                    <div class="pleat up"></div>
+                    <div class="pleat down"></div>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- 装饰部分 -->
+              <div class="stars">
+                <div class="star orange pointy star-1"><div class="star-element"></div></div>
+                <div class="star orange pointy star-2"><div class="star-element"></div></div>
+                <div class="star yellow pointy star-3"><div class="star-element"></div></div>
+                <div class="star yellow pointy star-4"><div class="star-element"></div></div>
+                <div class="star blue round star-5"><div class="star-element"></div></div>
+                <div class="star blue round star-6"><div class="star-element"></div></div>
+              </div>
+            </div>
+          
+            <!-- 阴影 -->
+            <div class="shadow-container">
+              <div class="shadow"></div>
+              <div class="shadow-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      // 设定参数
+      class Ghost {
+          constructor(el) {
+            this.scene = el;
+            this.clone = el.cloneNode(true);
+            this.isEscaping = false;
+            this.ghost = el.querySelector('.ghost');
+            this.face = el.querySelector('.ghost-face');
+            this.eyes = el.querySelector('.eyes-row');
+            this.leftEye = this.eyes.querySelector('.left');
+            this.rightEye = this.eyes.querySelector('.right');
+            this.mouth = el.querySelector('.mouth');
+            this.mouthState = 'neutral';
+            this.shadow = el.querySelector('.shadow-container');
+            this.leftCheek = el.querySelector('.left.cheek');
+            this.leftCheek = el.querySelector('.right.cheek');
+            this.leftHand = el.querySelector('.hand-left');
+            this.rightHand = el.querySelector('.right-hand');
+            this.activityInterval = null;
+          }
+          
+          // 逃离状态
+          runAway() {
+            this.leftHand.classList.add('waving');
+            setTimeout(() => {
+              this.leftHand.classList.remove('waving');
+              if (!this.isEscaping) {
+                this.isEscaping = true;
+                this.scene.classList.add('run-away', 'move-stars-in');
+                this.scene.classList.remove('stars-out');
+                setTimeout(() => {
+                  this.shadow.classList.add('disappear');
+                }, 500);
+              }
+            }, 1000);
+          }
+
+          // 回来时状态
+          enter() {
+            setTimeout(() => {
+              this.shadow.classList.remove('disappear');
+            }, 5);
+            this.scene.classList.remove('descend');
+            this.scene.classList.remove('run-away', 'move-stars-in');
+            this.scene.classList.add('stars-out', 'move-stars-out');
+            this.isEscaping = false;
+            setTimeout(() => {
+              this.startActivity();
+            },6000)
+          }
+          
+          startActivity() {
+            setTimeout(() => {
+              this.runAway();
+            },3000);
+            setTimeout(() => {
+              this.enter();
+            },500);
+          }
+        }
+
+        let ghost = new Ghost(document.querySelector('.scene-container'));
+        ghost.startActivity();
+
+    </script>
+  </body>
+</html>

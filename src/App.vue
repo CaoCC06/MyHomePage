@@ -32,12 +32,7 @@
 </template>
 
 <script setup>
-    // import { ref } from 'vue';
-    import Background from './template/background.vue';
-    // personal_signature = ref([
-    //   "Hello World !",
-    //   "Hello Friend !",
-    //   "Hello Users !",
-    //   "Hello Everybody !"
-    // ])
+  import Background from './template/background.vue';
+  
 </script>
+

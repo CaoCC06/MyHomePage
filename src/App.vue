@@ -13,13 +13,12 @@
       </div>
     </div>
 
-    <div class="typewriter">
+    <div class="content">
       <div class="content_container">
-        <p class="content_container_text">
-          Hello
-        </p>
-      
-        <ul v-for="item in personal_signature" :key="item" class="content_container_list">
+        <ul :key="item" class="content_container_list">
+          <li class="content_container_list_item">前途似海，来日方长</li>
+          <li class="content_container_list_item">world !</li>
+          <li class="content_container_list_item">world !</li>
           <li class="content_container_list_item">world !</li>
         </ul>
       </div>
@@ -33,6 +32,6 @@
 
 <script setup>
   import Background from './template/background.vue';
-  
+
 </script>
 

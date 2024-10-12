@@ -1,20 +1,16 @@
 :root {
   --mainColor: #000;
-  --bgColor: #fff7f4;
-  --dialogBgColor: #fff;
-  --dialogColor: #2c3e50;
+  --bgColor: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   --reTheme: 30px;
-  --loadBg: #ffffff radial-gradient(circle at center, #f0f0f0 0%, #ffffff 80%) no-repeat;
-  --loadText: #2b2b2b;
+  --contentColor: #2e5a83;
+  --infoTextColor: #414f68;
+  --cloudColor: #fff;
 }
 
 [data-theme="dark"] {
   --mainColor: #fff;
-  --bgColor: #000;
-  --dialogBgColor: #232323;
-  --dialogColor: #fff;
-  --loadBg: #0a0916 radial-gradient(circle at center, #151333 0%, #0a0916 80%) no-repeat;
-  --loadText: #fff;
+  --bgColor: linear-gradient(0deg, #001157 0%, #000c29 100%);
+  --cloudColor: #b5b1b1;
 }
 
 * {

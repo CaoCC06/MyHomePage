@@ -17,9 +17,9 @@
       <div class="content_container">
         <ul :key="item" class="content_container_list">
           <li class="content_container_list_item">前途似海，来日方长</li>
-          <li class="content_container_list_item">world !</li>
-          <li class="content_container_list_item">world !</li>
-          <li class="content_container_list_item">world !</li>
+          <li class="content_container_list_item">高岸为谷，深谷为陵</li>
+          <li class="content_container_list_item">静以修身，俭以养德</li>
+          <li class="content_container_list_item">长风破浪会有时</li>
         </ul>
       </div>
     </div>

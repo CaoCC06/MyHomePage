@@ -1,5 +1,4 @@
 <template>
-  <Loading v-if="loading"/>
   <Background/>
   <div class="main" v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1 }" :duration="2000">
     <div class="info">
@@ -15,15 +14,39 @@
 
     <div class="content">
       <div class="content_container">
-        <ul :key="item" class="content_container_list">
-          <li class="content_container_list_item">前途似海，来日方长</li>
-          <li class="content_container_list_item">高岸为谷，深谷为陵</li>
-          <li class="content_container_list_item">静以修身，俭以养德</li>
-          <li class="content_container_list_item">长风破浪会有时</li>
+        <ul class="content_container_list">
+          <li v-for="item in personality_signature" :key="item" class="content_container_list_item">{{item}}</li>
         </ul>
       </div>
     </div>
 
+    <div class="icon_container">
+      <a>
+        <button class="box">
+          <Icon icon="hugeicons:blogger" width="30px" height="30px" class="link_icon"/>
+        </button>
+      </a>
+      <a>
+        <button class="box">
+          <Icon icon="hugeicons:github" width="30px" height="30px" class="link_icon"/>
+        </button>
+      </a>
+      <a>
+        <button class="box">
+          <Icon icon="ic:baseline-alternate-email" width="30px" height="30px" class="link_icon"/>
+        </button>
+      </a>
+      <a>
+        <button class="box">
+          <Icon icon="mingcute:music-3-line" width="30px" height="30px" class="link_icon"/>
+        </button>
+      </a>
+      <a>
+        <button class="box">
+          <Icon icon="mdi:about-circle-outline" width="30px" height="30px" class="link_icon"/>
+        </button>
+      </a>
+    </div>
   </div>
   <div class="footer">
     By Cancan | ©2024
@@ -31,7 +54,61 @@
 </template>
 
 <script setup>
+  import { ref } from 'vue';
   import Background from './template/background.vue';
+  import { VsNotification } from 'vuesax-alpha'
+  import { onMounted } from 'vue';
+  import { Icon } from '@iconify/vue';
 
+  let index = 0
+
+  
+  const personality_signature = ref([
+    '前途似海，来日方长',
+    '高岸为谷，深谷为陵',
+    '静以修身，俭以养德',
+    '长风破浪会有时'
+  ])
+
+  const link_icon = ref([
+    {
+      icon: 'hugeicons:blogger',
+      link: '',
+      content: '博客'
+    },
+    {
+      icon: 'hugeicons:github',
+      link: '',
+      content: 'Github'
+    },
+    {
+      icon: 'ic:baseline-alternate-email',
+      link: '',
+      content: '邮箱'
+    },
+    {
+      icon: 'mingcute:music-3-line',
+      link: '',
+      content: '网易云'
+    },
+    {
+      icon: 'mdi:about-circle-outline',
+      link: '',
+      content: '关于'
+    }
+  ])
+
+
+  onMounted(() => {
+    setInterval(()=>{
+    if(index < personality_signature.value.length){
+      document.querySelector('.content_container_list').style.transform = `translateY(-${index * 40}px)`
+      index++
+    }else{
+      index = 0
+    }
+    
+  },2000)
+  })
 </script>
 

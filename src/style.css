@@ -4,13 +4,13 @@
   --reTheme: 30px;
   --contentColor: #2e5a83;
   --infoTextColor: #414f68;
-  --cloudColor: #fff;
+  --cloudWindColor: #ddd;
 }
 
 [data-theme="dark"] {
   --mainColor: #fff;
   --bgColor: linear-gradient(0deg, #001157 0%, #000c29 100%);
-  --cloudColor: #b5b1b1;
+  --cloudWindColor: #b5b1b1;
 }
 
 * {

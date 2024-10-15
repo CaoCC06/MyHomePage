@@ -21,29 +21,9 @@
     </div>
 
     <div class="icon_container">
-      <a>
-        <button class="box">
-          <Icon icon="hugeicons:blogger" width="30px" height="30px" class="link_icon"/>
-        </button>
-      </a>
-      <a>
-        <button class="box">
-          <Icon icon="hugeicons:github" width="30px" height="30px" class="link_icon"/>
-        </button>
-      </a>
-      <a>
-        <button class="box">
-          <Icon icon="ic:baseline-alternate-email" width="30px" height="30px" class="link_icon"/>
-        </button>
-      </a>
-      <a>
-        <button class="box">
-          <Icon icon="mingcute:music-3-line" width="30px" height="30px" class="link_icon"/>
-        </button>
-      </a>
-      <a>
-        <button class="box">
-          <Icon icon="mdi:about-circle-outline" width="30px" height="30px" class="link_icon"/>
+      <a v-for="item in link_icon" :key="item" :href="item.link">
+        <button class="box" :icon-content="item.content">
+          <Icon :icon="item.icon" width="30px" height="30px" class="link_icon"/>
         </button>
       </a>
     </div>
@@ -55,10 +35,10 @@
 
 <script setup>
   import { ref } from 'vue';
-  import Background from './template/background.vue';
-  import { VsNotification } from 'vuesax-alpha'
+  import Background from './components/background.vue';
   import { onMounted } from 'vue';
   import { Icon } from '@iconify/vue';
+  import { VsNotification } from 'vuesax-alpha'
 
   let index = 0
 
@@ -78,7 +58,7 @@
     },
     {
       icon: 'hugeicons:github',
-      link: '',
+      link: 'https://github.com/CaoCC06',
       content: 'Github'
     },
     {

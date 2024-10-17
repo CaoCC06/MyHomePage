@@ -32,6 +32,11 @@
     }
 }
 
+.vs-dialog{
+    .about_content{
+        margin: 1em 0;
+    }
+}
 
 #app {
     margin: 0;
@@ -203,6 +208,12 @@
             text-transform: uppercase;
             font-weight: 900;
             // background-color: aquamarine;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            background: transparent;
         }
 
         .link_icon{
@@ -210,6 +221,7 @@
         }
 
         .link_icon:hover {
+            color: #fff;
             transform: scale(1.2);
         }
         
@@ -219,7 +231,7 @@
             height: fit-content;
             position: absolute;
             font-size: 10px;
-            color: #fff;
+            color: #000;
             opacity: 0;
             visibility: hidden;
             transition: 0.2s linear;
@@ -227,6 +239,7 @@
         }
         
         .box:hover {
+            border: 1px rgba(85, 84, 84, 0.5) solid;
             border-radius: 20%;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
@@ -236,18 +249,7 @@
             opacity: 1;
             top: 70%;
         }
-        
-        button {
-            color: #333;
-            text-decoration: none;
-            border-radius: 20%;
-            cursor: pointer;
-            outline: none;
-            border: none;
-            background: transparent;
-        }
     }
-
     .footer {
         position: absolute;
         bottom: 1em;

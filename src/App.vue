@@ -1,47 +1,89 @@
 <template>
-  <Background/>
-  <div class="main" v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1 }" :duration="2000">
-    <div class="info">
-      <div class="header">
-        <img src="./assets/avatar.png" alt="">
+  <div>
+    <Background/>
+    <div class="main" v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1 }" :duration="2000">
+      <div class="info">
+        <div class="header">
+          <img src="./assets/avatar.png" alt="">
+        </div>
+    
+        <div class="infoText">
+          <h1>Welcome To</h1>
+          <h1><span class="qn">灿灿</span><span class="de">de小窝</span></h1>
+        </div>
       </div>
   
-      <div class="infoText">
-        <h1>Welcome To</h1>
-        <h1><span class="qn">灿灿</span><span class="de">de小窝</span></h1>
+      <div class="content">
+        <div class="content_container">
+          <ul class="content_container_list">
+            <li v-for="item in personality_signature" :key="item" class="content_container_list_item">{{item}}</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="icon_container">
+        <a v-for="item in link_icon" :key="item" :href="item.link">
+          <button class="box" :icon-content="item.content" @click="item.link">
+            <Icon :icon="item.icon" width="30px" height="30px" class="link_icon"/>
+          </button>
+        </a>
+          <button class="box" icon-content="关于" @click="active = !active">
+            <Icon icon="mdi:about-circle-outline" width="30px" height="30px" class="link_icon"/>
+          </button>
       </div>
     </div>
-
-    <div class="content">
-      <div class="content_container">
-        <ul class="content_container_list">
-          <li v-for="item in personality_signature" :key="item" class="content_container_list_item">{{item}}</li>
-        </ul>
+    <div class="footer">
+      By Cancan | ©2024
+    </div>
+    
+    <vs-dialog overlay-blur width="550px" v-model="active" not-close>
+      <template #header>
+        <h2 class="not-margin">
+          关于<b>本站</b>
+        </h2>
+      </template>
+      
+      <div v-motion-slide-visible-once-left class="about_content">
+        <vs-alert v-model:hidden-content.sync="tStackHidden">
+          <template #title>
+            技术栈
+          </template>
+          <ul>
+            <li><Icon icon="skill-icons:vuejs-light" width="40px" height="40px" /></li>
+            <li><Icon icon="skill-icons:vite-light" width="40px" height="40px" /></li>
+          </ul>
+        </vs-alert>
       </div>
-    </div>
-
-    <div class="icon_container">
-      <a v-for="item in link_icon" :key="item" :href="item.link">
-        <button class="box" :icon-content="item.content">
-          <Icon :icon="item.icon" width="30px" height="30px" class="link_icon"/>
-        </button>
-      </a>
-    </div>
-  </div>
-  <div class="footer">
-    By Cancan | ©2024
+      <div v-motion-slide-visible-once-right>
+        <vs-alert v-model:hidden-content.sync="aboutHidden">
+          <template #title>
+            Vuesax Framework
+          </template>
+          1111
+        </vs-alert>
+      </div>
+      <template #footer>
+        
+      </template>
+    </vs-dialog>
   </div>
 </template>
-
+<style>
+  /* 引入Vuesax的样式 */
+  @import 'vuesax-alpha/dist/index.css';
+  /* Vuesax的暗黑模式样式 */
+  @import 'vuesax-alpha/theme-chalk/dark/css-vars.css';
+</style>
 <script setup>
   import { ref } from 'vue';
   import Background from './components/background.vue';
   import { onMounted } from 'vue';
   import { Icon } from '@iconify/vue';
-  import { VsNotification } from 'vuesax-alpha'
 
   let index = 0
-
+  let active = ref(false)
+  let tStackHidden = ref(true)
+  let aboutHidden = ref(true)
   
   const personality_signature = ref([
     '前途似海，来日方长',
@@ -54,7 +96,7 @@
     {
       icon: 'hugeicons:blogger',
       link: '',
-      content: '博客'
+      content: '博客',
     },
     {
       icon: 'hugeicons:github',
@@ -65,16 +107,6 @@
       icon: 'ic:baseline-alternate-email',
       link: '',
       content: '邮箱'
-    },
-    {
-      icon: 'mingcute:music-3-line',
-      link: '',
-      content: '网易云'
-    },
-    {
-      icon: 'mdi:about-circle-outline',
-      link: '',
-      content: '关于'
     }
   ])
 
@@ -87,7 +119,6 @@
     }else{
       index = 0
     }
-    
   },2000)
   })
 </script>

@@ -56,3 +56,8 @@ MyHome
 - 将背景独立出来成为一个组件
 ###### 更新预览
 ![image](./doc/despicture2.png)
+
+#### -------10月16日~10月18日更新-------
+- 利用Vuesax的组件库，添加了部分内容(vs-avatar-group、vs-button、vs-alter)
+- 目前bug：引入Vuesax的组件库后，样式污染了index.html中的鬼魂加载动画样式，导致动画显示异常，目前正在解决中ing...
+

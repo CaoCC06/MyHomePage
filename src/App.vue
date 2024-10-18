@@ -51,7 +51,7 @@
           <b>本站基于以下技术搭建</b>
           <vs-avatar-group class="con-avatars" float>
             <vs-tooltip placement="top" v-for="i in avaters" :key="i.content">
-              <vs-avatar>
+              <vs-avatar v-motion-pop-visible>
                 <Icon :icon="i.icon" width="40px" height="40px" />
               </vs-avatar>
               <template #content>{{ i.content }}</template>

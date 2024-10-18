@@ -139,3 +139,5 @@
 <style scoped>
     @import '../style/background.less'
 </style>
+<script setup>
+</script>

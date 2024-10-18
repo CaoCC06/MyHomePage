@@ -8,7 +8,7 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px){
     #app {
         margin: 0;
         padding: 0;
@@ -35,6 +35,16 @@
 .vs-dialog{
     .about_content{
         margin: 1em 0;
+        .vs-alert__content--text{
+            padding: 10px 15px 20px 15px !important;
+            p{
+                margin-bottom: 5px;
+            }
+        }
+        .con-avatars {
+            display: flex;
+            justify-content: space-evenly !important;
+        }
     }
 }
 
@@ -208,7 +218,7 @@
             text-transform: uppercase;
             font-weight: 900;
             // background-color: aquamarine;
-            color: #333;
+            color: var(--contentColor);
             text-decoration: none;
             cursor: pointer;
             outline: none;
@@ -231,7 +241,7 @@
             height: fit-content;
             position: absolute;
             font-size: 10px;
-            color: #000;
+            color: var(--contentColor);
             opacity: 0;
             visibility: hidden;
             transition: 0.2s linear;

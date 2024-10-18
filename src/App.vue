@@ -46,18 +46,23 @@
       <div v-motion-slide-visible-once-left class="about_content">
         <vs-alert v-model:hidden-content.sync="tStackHidden">
           <template #title>
-            技术栈
+            <b>技术栈</b>
           </template>
-          <ul>
-            <li><Icon icon="skill-icons:vuejs-light" width="40px" height="40px" /></li>
-            <li><Icon icon="skill-icons:vite-light" width="40px" height="40px" /></li>
-          </ul>
+          <b>本站基于以下技术搭建</b>
+          <vs-avatar-group class="con-avatars" float>
+            <vs-tooltip placement="top" v-for="i in avaters" :key="i.content">
+              <vs-avatar>
+                <Icon :icon="i.icon" width="40px" height="40px" />
+              </vs-avatar>
+              <template #content>{{ i.content }}</template>
+            </vs-tooltip>
+          </vs-avatar-group>
         </vs-alert>
       </div>
       <div v-motion-slide-visible-once-right>
         <vs-alert v-model:hidden-content.sync="aboutHidden">
           <template #title>
-            Vuesax Framework
+            <b>想说的话</b>
           </template>
           1111
         </vs-alert>
@@ -107,6 +112,25 @@
       icon: 'ic:baseline-alternate-email',
       link: '',
       content: '邮箱'
+    }
+  ])
+
+  const avaters = ref([
+    {
+      icon: 'skill-icons:vuejs-light',
+      content: 'Vue3'
+    },
+    {
+      icon: 'skill-icons:vite-light',
+      content: 'Vite'
+    },
+    {
+      icon: 'skill-icons:less-light',
+      content: 'Less'
+    },
+    {
+      icon: 'line-md:iconify1',
+      content: 'iconify'
     }
   ])
 

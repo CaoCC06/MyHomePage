@@ -7,14 +7,23 @@
   --cloudWindColor: #ddd;
 }
 
-[data-theme="dark"] {
+/* [data-theme="dark"] {
   --mainColor: #fff;
   --bgColor: linear-gradient(0deg, #001157 0%, #000c29 100%);
   --cloudWindColor: #b5b1b1;
+} */
+
+
+@font-face {
+  font-family: "VF_Thin";
+  src: url("//at.alicdn.com/wf/webfont/753cYYzrCtbY/tZlPrZU0VK9q.woff2") format("woff2"),
+  url("//at.alicdn.com/wf/webfont/753cYYzrCtbY/lhZIeUw3GuQ0.woff") format("woff");
+  font-display: swap;
 }
 
 * {
-  font-family: JetBrains Mono !important;
+  font-family: "VF_Thin" !important;
+  user-select: none;
 }
 
 body {

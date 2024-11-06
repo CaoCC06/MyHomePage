@@ -315,89 +315,89 @@
     }
     // 风与云（end）
     // 风车(start)
-    .windmill_wrap{
-        position: absolute;
-        width: 100%;
-        height: 60em;
-        left: 0;
-        // border: 3px solid #333;
-    }
-    .windmill{
-        position: absolute;
-        width: 2em;
-        height: 21em;
-        left: 20%;
-        bottom: 0;
-        // background-color: #fdcb6e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .pole{
-            position: absolute;
-            width: 2em;
-            height: 24em;
-            bottom: 0;
-            // background-color: #fdcb6e;
-            perspective: 22em;
-        } 
-        .pole::after{
-            position:absolute;
-            content: '';
-            width: 100%;
-            height: 100%;
-            background-color:var(--cloudWindColor);
-            border: 3px solid #333;
-            border-width: 0 3px;
-            transform-origin: bottom;
-            transform: rotateX(15deg);
-        }
-        .head{
-            position: absolute;
-            width: 2em;
-            height: 2em;
-            top: 0;
-            // background-color: #EC3E27;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .fan{
-                position: absolute;
-                width: 2em;
-                height: 2em;
-                // background-color: #27ec72;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                animation: windmill_fan_rotate 5s linear infinite;
-                span{
-                    position: absolute;
-                    width: 14em;
-                    height: 2em;
-                    background-color: var(--cloudWindColor);
-                    border: 3px solid #333;
-                    border-radius: 100%;
-                    transform: rotate(calc(var(--i) * 120deg)) translateX(100px);
-                }
+    // .windmill_wrap{
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 60em;
+    //     left: 0;
+    //     // border: 3px solid #333;
+    // }
+    // .windmill{
+    //     position: absolute;
+    //     width: 2em;
+    //     height: 21em;
+    //     left: 20%;
+    //     bottom: 0;
+    //     // background-color: #fdcb6e;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     .pole{
+    //         position: absolute;
+    //         width: 2em;
+    //         height: 24em;
+    //         bottom: 0;
+    //         // background-color: #fdcb6e;
+    //         perspective: 22em;
+    //     } 
+    //     .pole::after{
+    //         position:absolute;
+    //         content: '';
+    //         width: 100%;
+    //         height: 100%;
+    //         background-color:var(--cloudWindColor);
+    //         border: 3px solid #333;
+    //         border-width: 0 3px;
+    //         transform-origin: bottom;
+    //         transform: rotateX(15deg);
+    //     }
+    //     .head{
+    //         position: absolute;
+    //         width: 2em;
+    //         height: 2em;
+    //         top: 0;
+    //         // background-color: #EC3E27;
+    //         transform: translateY(-50%);
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         .fan{
+    //             position: absolute;
+    //             width: 2em;
+    //             height: 2em;
+    //             // background-color: #27ec72;
+    //             display: flex;
+    //             justify-content: center;
+    //             align-items: center;
+    //             animation: windmill_fan_rotate 5s linear infinite;
+    //             span{
+    //                 position: absolute;
+    //                 width: 14em;
+    //                 height: 2em;
+    //                 background-color: var(--cloudWindColor);
+    //                 border: 3px solid #333;
+    //                 border-radius: 100%;
+    //                 transform: rotate(calc(var(--i) * 120deg)) translateX(100px);
+    //             }
 
-                @keyframes windmill_fan_rotate {
-                    0% {
-                        transform: rotate(0deg);
-                    }
-                    100% {
-                        transform: rotate(360deg);
-                    }
-                }
-            }
-            .fan::after{
-                position: absolute;
-                content: '';
-                width: 2em;
-                height: 2em;
-                background-color: var(--cloudWindColor);
-                border: 3px solid #333;
-                border-radius: 50%;
-            }
-        }    
-    }
+    //             @keyframes windmill_fan_rotate {
+    //                 0% {
+    //                     transform: rotate(0deg);
+    //                 }
+    //                 100% {
+    //                     transform: rotate(360deg);
+    //                 }
+    //             }
+    //         }
+    //         .fan::after{
+    //             position: absolute;
+    //             content: '';
+    //             width: 2em;
+    //             height: 2em;
+    //             background-color: var(--cloudWindColor);
+    //             border: 3px solid #333;
+    //             border-radius: 50%;
+    //         }
+    //     }    
+    // }
     // 风车(end)
